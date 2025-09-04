@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa de Observaciones - Los Lagos</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+    #map { flex: 3; }
+    #sidebar {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      background: #f8f9fa;
+      border-left: 2px solid #ccc;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 18px;
+      text-align: center;
+    }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="sidebar">
+    <h2>Especies observadas<br>en Los Lagos</h2>
+    <ul id="species-list"></ul>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const apiKey = "dnbm87a73dmo"; // Reemplaza con tu API Key
+    const fechaDeseada = "2025-09-03"; // Formato YYYY-MM-DD
+    const url = "https://api.ebird.org/v2/data/obs/CL-LL/recent?locale=es_CL";
+
+    // Inicializar mapa centrado en Puerto Montt aprox
+    const map = L.map('map').setView([-41.47, -72.94], 7);
+
+    // Cargar tiles de OpenStreetMap
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Cargar datos desde eBird
+    async function cargarObservaciones() {
+      const response = await fetch(url, {
+        headers: { "X-eBirdApiToken": apiKey }
+      });
+      const data = await response.json();
+
+      // Limpiar mapa y lista
+      map.eachLayer((layer) => {
+        if (layer instanceof L.Marker) map.removeLayer(layer);
+      });
+      document.getElementById("species-list").innerHTML = "";
+
+      // Map de especies únicas con fecha
+      const especies = new Map();
+
+      // Filtrar por fecha deseada
+      data
+        .filter(obs => obs.obsDt.startsWith(fechaDeseada))
+        .forEach(obs => {
+          if (obs.lat && obs.lng) {
+            L.marker([obs.lat, obs.lng])
+              .addTo(map)
+              .bindPopup(`
+                <b>${obs.comName}</b><br>
+                ${obs.locName}<br>
+                ${obs.obsDt}
+              `);
+          }
+          if (!especies.has(obs.comName)) {
+            especies.set(obs.comName, obs.obsDt);
+          }
+        });
+
+      // Mostrar lista en sidebar
+      const lista = document.getElementById("species-list");
+      Array.from(especies.entries())
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .forEach(([especie, fecha]) => {
+          const li = document.createElement("li");
+          li.textContent = `${especie} (${fecha})`;
+          lista.appendChild(li);
+        });
+    }
+
+    // Cargar observaciones al inicio
+    cargarObservaciones();
+
+    // Refrescar cada 5 minutos
+    setInterval(cargarObservaciones, 300000);
+  </script>
+</body>
+</html>
