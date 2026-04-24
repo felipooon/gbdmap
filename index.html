@@ -3,72 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Radar GBD Los Lagos | Full Pro</title>
+    <title>Radar Real-Time GBD | Los Lagos</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <style>
-        :root {
-            --bg-panel: rgba(255, 255, 255, 0.96);
-            --border: #d1d5db;
-            --accent: #2563eb;
-            --green: #16a34a;
-        }
+        :root { --accent: #2563eb; --green: #16a34a; --panel: rgba(255, 255, 255, 0.96); }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: system-ui, sans-serif; background: #000; overflow: hidden; }
         
-        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', system-ui, sans-serif; background: #000; overflow: hidden; }
-        
-        /* El mapa ocupa el 70% en móvil para dar espacio a los datos */
         #map { height: 70%; width: 100%; z-index: 1; }
 
-        /* CONTADORES FLOTANTES (Extraídos de contador.html) */
+        /* HUD FLOTANTE DE CONTADOR.HTML */
         .mobile-stats {
             position: absolute; top: 10px; left: 10px; right: 10px;
             z-index: 1000; display: flex; justify-content: space-around;
-            background: var(--bg-panel); backdrop-filter: blur(8px);
+            background: var(--panel); backdrop-filter: blur(8px);
             padding: 8px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border: 1px solid var(--border); pointer-events: none;
+            border: 1px solid #ddd; pointer-events: none;
         }
         .stat-item { text-align: center; flex: 1; border-right: 1px solid #eee; }
         .stat-item:last-child { border-right: none; }
         .stat-item b { display: block; font-size: 16px; color: #111; }
         .stat-item span { font-size: 9px; text-transform: uppercase; color: #666; font-weight: bold; }
 
-        /* PANEL INFERIOR OPTIMIZADO */
+        /* PANEL INFERIOR RADAR.HTML */
         .overlay-panel {
             position: absolute; bottom: 0; left: 0; right: 0; height: 30%;
-            background: var(--bg-panel); z-index: 1000; border-radius: 20px 20px 0 0;
+            background: var(--panel); z-index: 1000; border-radius: 20px 20px 0 0;
             display: flex; flex-direction: column; box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
         }
-
-        .tabs { display: flex; background: #f1f5f9; border-radius: 20px 20px 0 0; border-bottom: 1px solid var(--border); }
-        .tab-btn { flex: 1; padding: 12px; border: none; background: none; cursor: pointer; font-size: 11px; font-weight: bold; color: #64748b; }
+        .tabs { display: flex; background: #f1f5f9; border-radius: 20px 20px 0 0; }
+        .tab-btn { flex: 1; padding: 12px; border: none; background: none; font-size: 11px; font-weight: bold; color: #64748b; cursor: pointer; }
         .tab-btn.active { color: var(--accent); background: white; border-bottom: 3px solid var(--accent); }
 
-        .content-area { flex: 1; overflow-y: auto; display: none; padding: 0 10px; }
+        .content-area { flex: 1; overflow-y: auto; padding: 0 10px; display: none; }
         .content-area.active { display: block; }
 
         table { width: 100%; border-collapse: collapse; font-size: 11px; table-layout: fixed; }
-        th { position: sticky; top: 0; background: white; padding: 10px 5px; text-align: left; border-bottom: 1px solid var(--border); z-index: 5; }
-        td { padding: 12px 5px; border-bottom: 1px solid #f1f5f9; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        
-        .filter-input { width: 100%; box-sizing: border-box; padding: 6px; border: 1px solid #ddd; border-radius: 6px; font-size: 11px; }
+        td, th { padding: 10px 5px; border-bottom: 1px solid #f1f5f9; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+        .input-mini { width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 5px; font-size: 11px; }
 
-        /* POPUP VITAMINADO */
-        .leaflet-popup-content { font-size: 12px; line-height: 1.4; }
-        .popup-link { display: block; margin-top: 8px; text-align: center; background: var(--accent); color: white !important; padding: 5px; border-radius: 4px; text-decoration: none; font-weight: bold; }
-
-        @media (min-width: 1024px) {
-            #map { height: 100%; width: 70%; float: left; }
-            .overlay-panel { position: relative; height: 100%; width: 30%; border-radius: 0; top: 0; right: 0; }
-            .mobile-stats { width: 400px; left: 60px; }
-        }
+        /* POPUP ESTILO IT */
+        .popup-card { min-width: 150px; }
+        .btn-check { display: block; background: var(--accent); color: white !important; text-align: center; padding: 5px; border-radius: 4px; text-decoration: none; margin-top: 8px; font-size: 10px; }
     </style>
 </head>
 <body>
 
     <div class="mobile-stats">
-        <div class="stat-item"><b id="s-sp">--</b><span>Especies</span></div>
+        <div class="stat-item"><b id="s-sp">0</b><span>Especies</span></div>
         <div class="stat-item"><b id="s-list">--</b><span>Listas</span></div>
         <div class="stat-item"><b id="s-user">--</b><span>Pajareros</span></div>
     </div>
@@ -77,137 +61,134 @@
 
     <div class="overlay-panel">
         <div class="tabs">
-            <button id="btn-listas" class="tab-btn active" onclick="switchTab('tab-listas')">LISTAS</button>
-            <button id="btn-especies" class="tab-btn" onclick="switchTab('tab-especies')">ULT. ESPECIES</button>
+            <button id="b1" class="tab-btn active" onclick="setTab('listas')">LISTAS (AUDITORÍA)</button>
+            <button id="b2" class="tab-btn" onclick="setTab('especies')">ESPECIES EN VIVO</button>
         </div>
 
         <div id="tab-listas" class="content-area active">
             <table>
                 <thead>
                     <tr>
-                        <th width="65%">Observador <br><input type="text" id="f-user" class="filter-input" placeholder="Buscar..." onkeyup="render()"></th>
-                        <th width="20%" style="text-align:center">Esp</th>
-                        <th width="15%" style="text-align:center">Link</th>
+                        <th width="70%">Obs / Lugar <br><input type="text" id="f-user" class="input-mini" placeholder="Filtro..." onkeyup="render()"></th>
+                        <th width="15%">Esp</th>
+                        <th width="15%">Ir</th>
                     </tr>
                 </thead>
-                <tbody id="body-listas"></tbody>
+                <tbody id="tbody-listas"></tbody>
             </table>
         </div>
 
         <div id="tab-especies" class="content-area">
             <table>
-                <thead><tr><th>Especie</th><th>Lugar</th><th>Hora</th></tr></thead>
-                <tbody id="body-especies"></tbody>
+                <thead><tr><th width="40%">Nombre</th><th width="40%">Lugar</th><th width="20%">Hora</th></tr></thead>
+                <tbody id="tbody-especies"></tbody>
             </table>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script>
-        const API_KEY = "dnbm87a73dmo";
-        const REGION = "CL-LL";
-        let rawListas = [];
-        let diaHoy = "";
+        const API_KEY = "dnbm87a73dmo", REGION = "CL-LL";
+        let rawListas = [], diaH = "";
 
-        // MAPA: Satélite limpio (lyrs=s) por defecto
+        // MAPA SATELITAL LIMPIO
         const map = L.map('map', { zoomControl: false }).setView([-41.47, -72.94], 9);
-        const sat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}').addTo(map); 
+        const sat = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}').addTo(map);
         const streets = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png');
-        
-        L.control.layers({ "Satélite": sat, "Mapa": streets }, null, { position: 'topright' }).addTo(map);
-        L.control.zoom({ position: 'bottomleft' }).addTo(map);
+        L.control.layers({"Satélite": sat, "Mapa": streets}, null, {position:'topright'}).addTo(map);
         const markers = L.layerGroup().addTo(map);
 
         window.onload = () => {
-            diaHoy = new Intl.DateTimeFormat('es-CL', { timeZone: "America/Santiago", day: '2-digit' }).format(new Date());
-            updateAll();
+            const h = new Date();
+            diaH = new Intl.DateTimeFormat('es-CL', { day: '2-digit' }).format(h);
+            update();
         };
 
-        async function updateAll() {
-            await fetchStats();
-            await fetchListas();
-            await fetchRecentSpecies();
-        }
-
-        async function fetchStats() {
+        async function update() {
             const h = new Date();
-            const url = `https://api.ebird.org/v2/product/stats/${REGION}/${h.getFullYear()}/${String(h.getMonth()+1).padStart(2,'0')}/${String(h.getDate()).padStart(2,'0')}`;
-            try {
-                const res = await fetch(url, { headers: {"X-eBirdApiToken": API_KEY} });
-                if(res.ok) {
-                    const d = await res.json();
-                    document.getElementById('s-sp').innerText = d.numSpecies || 0;
-                    document.getElementById('s-list').innerText = d.numChecklists || 0;
-                    document.getElementById('s-user').innerText = d.numContributors || 0;
-                }
-            } catch(e) {}
-        }
+            const y = h.getFullYear(), m = h.getMonth() + 1, d = h.getDate();
 
-        async function fetchListas() {
+            // HISTORIC OBSERVATIONS ON A DATE (El endpoint que sugeriste)
+            // Esto nos da las especies reales vistas HOY sin latencia
             try {
-                const res = await fetch(`https://api.ebird.org/v2/product/lists/${REGION}?maxResults=100`, { headers: {"X-eBirdApiToken": API_KEY} });
-                rawListas = await res.json();
+                const resObs = await fetch(`https://api.ebird.org/v2/data/obs/${REGION}/historic/${y}/${m}/${d}?locale=es_CL`, {
+                    headers: {"X-eBirdApiToken": API_KEY}
+                });
+                const obsData = await resObs.json();
+                
+                // Actualizar contador de especies real
+                document.getElementById('s-sp').innerText = obsData.length;
+
+                // Llenar tabla de especies
+                document.getElementById('tbody-especies').innerHTML = obsData.map(o => `
+                    <tr><td><b>${o.comName}</b></td><td>${o.locName.substring(0,12)}..</td><td>${o.obsDt.split(' ')[1] || '--'}</td></tr>
+                `).join('');
+            } catch(e) { console.error("Error en Historic:", e); }
+
+            // LISTAS PARA EL MAPA Y AUDITORÍA
+            try {
+                const resList = await fetch(`https://api.ebird.org/v2/product/lists/${REGION}?maxResults=80`, {
+                    headers: {"X-eBirdApiToken": API_KEY}
+                });
+                rawListas = await resList.json();
+                
+                // Contador de listas y usuarios (del resumen regional)
+                const resStats = await fetch(`https://api.ebird.org/v2/product/stats/${REGION}/${y}/${m}/${d}`, {
+                    headers: {"X-eBirdApiToken": API_KEY}
+                });
+                if(resStats.ok) {
+                    const sd = await resStats.json();
+                    document.getElementById('s-list').innerText = sd.numChecklists;
+                    document.getElementById('s-user').innerText = sd.numContributors;
+                }
                 render();
             } catch(e) {}
         }
 
-        async function fetchRecentSpecies() {
-            try {
-                const res = await fetch(`https://api.ebird.org/v2/data/obs/${REGION}/recent?locale=es_CL`, { headers: {"X-eBirdApiToken": API_KEY} });
-                const data = await res.json();
-                const hoyIso = new Intl.DateTimeFormat('en-CA', { timeZone: "America/Santiago" }).format(new Date());
-                document.getElementById('body-especies').innerHTML = data.filter(o => o.obsDt.startsWith(hoyIso)).map(o => `
-                    <tr><td><b>${o.comName}</b></td><td>${o.locName.substring(0,10)}..</td><td>${o.obsDt.split(' ')[1]}</td></tr>
-                `).join('');
-            } catch(e) {}
-        }
-
-        function formatName(name) {
-            const p = name.split(' ');
+        function formatName(n) {
+            const p = n.split(' ');
             return p.length > 1 ? `${p[0]} ${p[1][0]}.` : p[0];
         }
 
         function render() {
             const fu = document.getElementById('f-user').value.toLowerCase();
             markers.clearLayers();
+            const filtradas = rawListas.filter(l => l.obsDt.includes(diaH) && l.userDisplayName.toLowerCase().includes(fu));
             
-            // Filtramos solo por lo de HOY para la tabla regional
-            const filtradas = rawListas.filter(l => l.obsDt.includes(diaHoy) && l.userDisplayName.toLowerCase().includes(fu));
-            
-            document.getElementById('body-listas').innerHTML = filtradas.map(l => `
+            document.getElementById('tbody-listas').innerHTML = filtradas.map(l => `
                 <tr>
                     <td onclick="map.flyTo([${l.loc.latitude}, ${l.loc.longitude}], 14)" style="cursor:pointer">
-                        <b>${formatName(l.userDisplayName)}</b> <span style="color:#666; font-size:9px">@ ${l.loc.name.substring(0,15)}</span>
+                        <b>${formatName(l.userDisplayName)}</b> <br> <span style="font-size:9px; color:#666">${l.loc.name.substring(0,25)}</span>
                     </td>
-                    <td style="text-align:center"><span style="background:var(--green); color:white; padding:2px 6px; border-radius:10px">${l.numSpecies}</span></td>
+                    <td style="text-align:center"><span style="background:var(--green); color:white; padding:2px 5px; border-radius:10px">${l.numSpecies}</span></td>
                     <td style="text-align:center"><a href="https://ebird.org/checklist/${l.subId}" target="_blank" style="color:var(--accent)"><i class="fas fa-external-link-alt"></i></a></td>
                 </tr>
             `).join('');
 
             filtradas.forEach(l => {
-                const popupHTML = `
-                    <b>${l.userDisplayName}</b><br>
-                    <i class="fas fa-clock"></i> ${l.obsDt.split(' ')[1]}<br>
-                    <i class="fas fa-map-marker-alt"></i> ${l.loc.name}<br>
-                    <i class="fas fa-dove"></i> Especies: <b>${l.numSpecies}</b>
-                    <a href="https://ebird.org/checklist/${l.subId}" target="_blank" class="popup-link">ABRIR LISTA</a>
+                const content = `
+                    <div class="popup-card">
+                        <b>${l.userDisplayName}</b><br>
+                        <i class="fas fa-clock"></i> ${l.obsDt.split(' ')[1]}<br>
+                        <i class="fas fa-map-marker-alt"></i> ${l.loc.name}<br>
+                        <i class="fas fa-dove"></i> Especies: <b>${l.numSpecies}</b>
+                        <a href="https://ebird.org/checklist/${l.subId}" target="_blank" class="btn-check">VER CHECKLIST</a>
+                    </div>
                 `;
-
                 L.circleMarker([l.loc.latitude, l.loc.longitude], {
-                    radius: 9, fillColor: '#16a34a', color: "white", weight: 2, fillOpacity: 0.85
-                }).addTo(markers).bindPopup(popupHTML);
+                    radius: 8, fillColor: '#16a34a', color: 'white', weight: 2, fillOpacity: 0.9
+                }).addTo(markers).bindPopup(content);
             });
         }
 
-        function switchTab(tabId) {
-            document.querySelectorAll('.content-area').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            const btnId = tabId === 'tab-listas' ? 'btn-listas' : 'btn-especies';
-            document.getElementById(btnId).classList.add('active');
+        function setTab(t) {
+            document.getElementById('tab-listas').classList.toggle('active', t === 'listas');
+            document.getElementById('tab-especies').classList.toggle('active', t === 'especies');
+            document.getElementById('b1').classList.toggle('active', t === 'listas');
+            document.getElementById('b2').classList.toggle('active', t === 'especies');
         }
 
-        setInterval(updateAll, 300000);
+        setInterval(update, 300000);
     </script>
 </body>
 </html>
