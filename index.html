@@ -175,7 +175,7 @@
             
             try {
                 // Ahora llamamos a la vista de Django que acabamos de crear
-                const resDicc = await fetch('/api/diccionario-especies/'); 
+                const resDicc = await fetch('https://raratienda.cl/api/diccionario-especies/'); 
                 
                 if (resDicc.ok) {
                     diccEspecies = await resDicc.json();
@@ -196,7 +196,7 @@
             
             // 1. CARGAR ESPECIES
             try {
-                const resObs = await fetch(`/api/ebird/data/obs/${REGION}/historic/${y}/${m}/${d}?locale=es_CL`);
+                const resObs = await fetch(`https://raratienda.cl/api/ebird/data/obs/${REGION}/historic/${y}/${m}/${d}?locale=es_CL`);
                 const obsData = await resObs.json();
                 
                 // Actualizamos el contador flotante
@@ -235,10 +235,10 @@
             
             // 2. CARGAR LISTAS Y STATS
             try {
-                const resList = await fetch(`/api/ebird/product/lists/${REGION}?maxResults=80`);
+                const resList = await fetch(`https://raratienda.cl/api/ebird/product/lists/${REGION}?maxResults=80`);
                 rawListas = await resList.json();
                 
-                const resStats = await fetch(`/api/ebird/product/stats/${REGION}/${y}/${m}/${d}`);
+                const resStats = await fetch(`https://raratienda.cl/api/ebird/product/stats/${REGION}/${y}/${m}/${d}`);
                 if(resStats.ok) {
                     const sd = await resStats.json();
                     document.getElementById('s-list').innerText = sd.numChecklists;
