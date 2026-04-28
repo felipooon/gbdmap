@@ -55,7 +55,7 @@
 
         /* PUBLICIDAD */
         .ads-floating { position: absolute; bottom: 36%; right: 10px; z-index: 1001; display: flex; gap: 8px; }
-        .ad-logo { height: 25px; background: white; padding: 4px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .ad-logo { height: 25px; background: rgba(255, 255, 255, 0.5);backdrop-filter: blur(2px); padding: 4px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
 
         /* ESTILO POPUP */
         .popup-card { min-width: 160px; font-family: sans-serif; }
@@ -64,7 +64,7 @@
         .btn-ver { 
             display: block; background: var(--accent); color: white !important; 
             text-align: center; padding: 8px; border-radius: 6px; 
-            text-decoration: none; margin-top: 10px; font-weight: bold; font-size: 11px;
+            text-decoration: none; margin-top: 10px; font-weight: bold; font-size: 10px;
         }
 
         @media (min-width: 1024px) {
@@ -107,9 +107,10 @@
         </select>
     </div>
 
-    <!--<div class="ads-floating">
+    <div class="ads-floating">
         <a href="https://raratienda.cl" target="_blank"><img src="https://res.cloudinary.com/dfyj3s6bi/image/upload/v1777296097/logo-og_pjdz0w.png" class="ad-logo" alt="Rara Tienda"></a>
-    </div>-->
+        <a href="https://ebird.org" target="_blank"><img src="https://clo-brand-static-prod.s3.amazonaws.com/logos/ebird/clo_ebird_solo_web.svg" class="ad-logo" alt="ebird"></a>
+    </div>
 
     <div class="main-view">
         <div id="map"></div>
@@ -144,8 +145,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script>
         let REGION = "CL-LL";
-        const API_KEY = "dnbm87a73dmo";
         let rawListas = [], diaH = "";
+        let diccEspecies = {};
 
         const coordsRegiones = {
             "CL-AP": [-18.47, -70.30], "CL-TA": [-20.21, -70.14], "CL-AN": [-23.65, -70.40],
@@ -169,38 +170,86 @@
             await update();
         }
 
-        window.onload = () => {
+        window.onload = async () => {
             diaH = new Intl.DateTimeFormat('es-CL', { day: '2-digit' }).format(new Date());
-            update();
+            
+            try {
+                // Ahora llamamos a la vista de Django que acabamos de crear
+                const resDicc = await fetch('/api/diccionario-especies/'); 
+                
+                if (resDicc.ok) {
+                    diccEspecies = await resDicc.json();
+                    console.log("Diccionario cargado. Total especies:", Object.keys(diccEspecies).length);
+                } else {
+                    console.error("No se pudo cargar el JSON desde la API local");
+                }
+            } catch (e) {
+                console.error("Error de red cargando diccionario:", e);
+            }
+            
+            await update();
         };
 
         async function update() {
             const h = new Date();
             const y = h.getFullYear(), m = h.getMonth() + 1, d = h.getDate();
+            
+            // 1. CARGAR ESPECIES
             try {
-                const resObs = await fetch(`https://api.ebird.org/v2/data/obs/${REGION}/historic/${y}/${m}/${d}?locale=es_CL`, { headers: {"X-eBirdApiToken": API_KEY} });
+                const resObs = await fetch(`/api/ebird/data/obs/${REGION}/historic/${y}/${m}/${d}?locale=es_CL`);
                 const obsData = await resObs.json();
+                
+                // Actualizamos el contador flotante
                 document.getElementById('s-sp').innerText = obsData.length;
-                document.getElementById('tbody-especies').innerHTML = obsData.map(o => `
-                    <tr>
-                        <td><b>${o.comName}</b></td>
-                        <td>${o.locName.substring(0,12)}..</td>
-                        <td>${o.obsDt.split(' ')[1] || '--'}</td>
-                        <td style="text-align:center"><a href="https://ebird.org/checklist/${o.subId}" target="_blank" style="color:var(--accent)"><i class="fas fa-external-link-alt"></i></a></td>
-                    </tr>
-                `).join('');
-            } catch(e) {}
+                
+                // Generamos el HTML de la tabla mapeando y traduciendo
+                const htmlEspecies = obsData.map(o => {
+                    const codigo = o.speciesCode; 
+                    let nombreFinal = o.comName; // Nombre original de eBird por defecto
+                    
+                    // Si el código está en tu diccionario, usamos tu nombre en español
+                    if (diccEspecies && diccEspecies[codigo]) {
+                        nombreFinal = diccEspecies[codigo].es; 
+                    }
+
+                    return `
+                        <tr>
+                            <td><b>${nombreFinal}</b></td>
+                            <td>${o.locName.substring(0,12)}..</td>
+                            <td>${o.obsDt.split(' ')[1] || '--'}</td>
+                            <td style="text-align:center">
+                                <a href="https://ebird.org/checklist/${o.subId}" target="_blank" style="color:var(--accent)">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+                
+                // Inyectamos el HTML en la tabla
+                document.getElementById('tbody-especies').innerHTML = htmlEspecies;
+
+            } catch(e) {
+                console.error("Error cargando especies en vivo:", e);
+            }
+            
+            // 2. CARGAR LISTAS Y STATS
             try {
-                const resList = await fetch(`https://api.ebird.org/v2/product/lists/${REGION}?maxResults=80`, { headers: {"X-eBirdApiToken": API_KEY} });
+                const resList = await fetch(`/api/ebird/product/lists/${REGION}?maxResults=80`);
                 rawListas = await resList.json();
-                const resStats = await fetch(`https://api.ebird.org/v2/product/stats/${REGION}/${y}/${m}/${d}`, { headers: {"X-eBirdApiToken": API_KEY} });
+                
+                const resStats = await fetch(`/api/ebird/product/stats/${REGION}/${y}/${m}/${d}`);
                 if(resStats.ok) {
                     const sd = await resStats.json();
                     document.getElementById('s-list').innerText = sd.numChecklists;
                     document.getElementById('s-user').innerText = sd.numContributors;
                 }
-                render();
-            } catch(e) {}
+                
+                render(); // Dibujar los puntos en el mapa
+
+            } catch(e) {
+                console.error("Error cargando listas o stats:", e);
+            }
         }
 
         function formatName(n) { const p = n.split(' '); return p.length > 1 ? `${p[0]} ${p[1][0]}.` : p[0]; }
