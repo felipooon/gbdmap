@@ -174,7 +174,7 @@
             diaH = new Intl.DateTimeFormat('es-CL', { day: '2-digit' }).format(new Date());
             
             try {
-                // Ahora llamamos a la vista de Django que acabamos de crear
+                
                 const resDicc = await fetch('https://raratienda.cl/api/diccionario-especies/'); 
                 
                 if (resDicc.ok) {
@@ -194,12 +194,12 @@
             const h = new Date();
             const y = h.getFullYear(), m = h.getMonth() + 1, d = h.getDate();
             
-            // 1. CARGAR ESPECIES
+    
             try {
                 const resObs = await fetch(`https://raratienda.cl/api/ebird/data/obs/${REGION}/historic/${y}/${m}/${d}?locale=es_CL`);
                 const obsData = await resObs.json();
                 
-                // Actualizamos el contador flotante
+                // Contador flotante
                 document.getElementById('s-sp').innerText = obsData.length;
                 
                 // Generamos el HTML de la tabla mapeando y traduciendo
@@ -207,7 +207,7 @@
                     const codigo = o.speciesCode; 
                     let nombreFinal = o.comName; // Nombre original de eBird por defecto
                     
-                    // Si el código está en tu diccionario, usamos tu nombre en español
+                    // diccionario de nombres
                     if (diccEspecies && diccEspecies[codigo]) {
                         nombreFinal = diccEspecies[codigo].es; 
                     }
@@ -226,14 +226,12 @@
                     `;
                 }).join('');
                 
-                // Inyectamos el HTML en la tabla
                 document.getElementById('tbody-especies').innerHTML = htmlEspecies;
 
             } catch(e) {
                 console.error("Error cargando especies en vivo:", e);
             }
             
-            // 2. CARGAR LISTAS Y STATS
             try {
                 const resList = await fetch(`https://raratienda.cl/api/ebird/product/lists/${REGION}?maxResults=200`);
                 rawListas = await resList.json();
