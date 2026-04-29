@@ -235,7 +235,7 @@
             
             // 2. CARGAR LISTAS Y STATS
             try {
-                const resList = await fetch(`https://raratienda.cl/api/ebird/product/lists/${REGION}?maxResults=80`);
+                const resList = await fetch(`https://raratienda.cl/api/ebird/product/lists/${REGION}?maxResults=200`);
                 rawListas = await resList.json();
                 
                 const resStats = await fetch(`https://raratienda.cl/api/ebird/product/stats/${REGION}/${y}/${m}/${d}`);
