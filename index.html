@@ -258,29 +258,50 @@
         }
 
         function render() {
-            const fu = document.getElementById('f-user').value.toLowerCase();
+            // Escudo por si el buscador HTML no ha cargado
+            const fUserEl = document.getElementById('f-user');
+            const fu = fUserEl ? fUserEl.value.toLowerCase() : "";
+            
             markers.clearLayers();
             
-            // 1. Construir la fecha exacta a prueba de balas: "YYYY-MM-DD"
+            // Construimos las fechas posibles
             const h = new Date();
             const y = h.getFullYear();
-            const m = String(h.getMonth() + 1).padStart(2, '0');
-            const d = String(h.getDate()).padStart(2, '0');
-            const fechaHoy = `${y}-${m}-${d}`; 
+            const mConCero = String(h.getMonth() + 1).padStart(2, '0');
+            const dConCero = String(h.getDate()).padStart(2, '0');
+            const mSinCero = h.getMonth() + 1;
+            const dSinCero = h.getDate();
+            
+            const f1 = `${y}-${mConCero}-${dConCero}`; // Formato: "2026-05-01"
+            const f2 = `${y}-${mSinCero}-${dSinCero}`; // Formato: "2026-5-1"
+            
+            // --- INICIO DE CHISMOSERÍA (Modo Debug) ---
+            console.log("=== DEBUG RADAR ===");
+            console.log("Buscando listas con la fecha:", f1, "o", f2);
+            if (rawListas && rawListas.length > 0) {
+                console.log("Éxito: Tenemos", rawListas.length, "listas descargadas de eBird.");
+                console.log("La lista MÁS RECIENTE del servidor tiene la fecha:", rawListas[0].obsDt);
+            } else {
+                console.log("ERROR: rawListas está vacío o no llegó del servidor.");
+            }
+            // ------------------------------------------
 
-            // 2. Filtrar con seguridad
             const filtradas = rawListas.filter(l => {
-                // Comprobamos que empiece EXACTAMENTE con la fecha de hoy
-                const esHoy = l.obsDt.startsWith(fechaHoy);
+                if (!l.obsDt) return false;
                 
-                // Escudo: Verificamos que el usuario exista antes de buscar
+                // Buscamos si la fecha del ave coincide con alguno de nuestros formatos
+                const esHoy = l.obsDt.includes(f1) || l.obsDt.includes(f2);
+                
                 const nombreUsuario = l.userDisplayName ? l.userDisplayName.toLowerCase() : "observador anónimo";
-                const coincideBuscador = nombreUsuario.includes(fu);
+                const coincideBuscador = fu === "" || nombreUsuario.includes(fu);
                 
                 return esHoy && coincideBuscador;
             });
 
-            // 3. Imprimir la tabla
+            console.log("Listas que pasaron el filtro y se van a dibujar:", filtradas.length);
+            console.log("===================");
+
+            // Imprimimos la tabla
             document.getElementById('tbody-listas').innerHTML = filtradas.map(l => `
                 <tr>
                     <td onclick="map.flyTo([${l.loc.latitude}, ${l.loc.longitude}], 14)" style="cursor:pointer">
@@ -291,7 +312,7 @@
                 </tr>
             `).join('');
 
-            // 4. Dibujar los pines en el mapa
+            // Dibujamos los pines
             filtradas.forEach(l => {
                 const popupContent = `
                     <div class="popup-card">
