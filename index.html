@@ -253,37 +253,53 @@
         function formatName(n) { const p = n.split(' '); return p.length > 1 ? `${p[0]} ${p[1][0]}.` : p[0]; }
 
         function render() {
-            const fu = document.getElementById('f-user').value.toLowerCase();
-            markers.clearLayers();
-            const filtradas = rawListas.filter(l => l.obsDt.includes(diaH) && l.userDisplayName.toLowerCase().includes(fu));
-            document.getElementById('tbody-listas').innerHTML = filtradas.map(l => `
-                <tr>
-                    <td onclick="map.flyTo([${l.loc.latitude}, ${l.loc.longitude}], 14)" style="cursor:pointer">
-                        <b>${formatName(l.userDisplayName)}</b> <br> <span style="font-size:9px; color:#666">${l.loc.name.substring(0,25)}</span>
-                    </td>
-                    <td style="text-align:center"><span style="background:var(--green); color:white; padding:2px 5px; border-radius:10px">${l.numSpecies}</span></td>
-                    <td style="text-align:center"><a href="https://ebird.org/checklist/${l.subId}" target="_blank" style="color:var(--accent)"><i class="fas fa-external-link-alt"></i></a></td>
-                </tr>
-            `).join('');
+    const fu = document.getElementById('f-user').value.toLowerCase();
+    markers.clearLayers();
+    
+    // 1. Construimos la fecha correcta (Ej: "2026-05-01")
+    const h = new Date();
+    const y = h.getFullYear();
+    const m = String(h.getMonth() + 1).padStart(2, '0');
+    const d = String(h.getDate()).padStart(2, '0');
+    const fechaHoy = `${y}-${m}-${d}`; 
 
-            filtradas.forEach(l => {
-                const popupContent = `
-                    <div class="popup-card">
-                        <b>${l.userDisplayName}</b>
-                        <small><i class="fas fa-map-marker-alt"></i> ${l.loc.name}</small><br>
-                        <small><i class="fas fa-dove"></i> Especies: <b>${l.numSpecies}</b></small>
-                        <a href="https://ebird.org/checklist/${l.subId}" target="_blank" class="btn-ver">VER LISTA</a>
-                    </div>
-                `;
-                L.circleMarker([l.loc.latitude, l.loc.longitude], { 
-                    radius: 9, 
-                    fillColor: '#16a34a', 
-                    color: 'white', 
-                    weight: 2, 
-                    fillOpacity: 0.9 
-                }).addTo(markers).bindPopup(popupContent);
-            });
-        }
+    // 2. Filtramos usando isoObsDate y DESCARTAMOS a los anónimos
+    const filtradas = rawListas.filter(l => 
+        l.isoObsDate && 
+        l.isoObsDate.startsWith(fechaHoy) && 
+        l.userDisplayName && // <-- El candado: Si no hay nombre, la lista no pasa
+        l.userDisplayName.toLowerCase().includes(fu)
+    );
+
+    // 3. Tu código de tablas y popups exacto como lo tenías
+    document.getElementById('tbody-listas').innerHTML = filtradas.map(l => `
+        <tr>
+            <td onclick="map.flyTo([${l.loc.latitude}, ${l.loc.longitude}], 14)" style="cursor:pointer">
+                <b>${formatName(l.userDisplayName)}</b> <br> <span style="font-size:9px; color:#666">${l.loc.name.substring(0,25)}</span>
+            </td>
+            <td style="text-align:center"><span style="background:var(--green); color:white; padding:2px 5px; border-radius:10px">${l.numSpecies}</span></td>
+            <td style="text-align:center"><a href="https://ebird.org/checklist/${l.subId}" target="_blank" style="color:var(--accent)"><i class="fas fa-external-link-alt"></i></a></td>
+        </tr>
+    `).join('');
+
+    filtradas.forEach(l => {
+        const popupContent = `
+            <div class="popup-card">
+                <b>${l.userDisplayName}</b>
+                <small><i class="fas fa-map-marker-alt"></i> ${l.loc.name}</small><br>
+                <small><i class="fas fa-dove"></i> Especies: <b>${l.numSpecies}</b></small>
+                <a href="https://ebird.org/checklist/${l.subId}" target="_blank" class="btn-ver">VER LISTA</a>
+            </div>
+        `;
+        L.circleMarker([l.loc.latitude, l.loc.longitude], { 
+            radius: 9, 
+            fillColor: '#16a34a', 
+            color: 'white', 
+            weight: 2, 
+            fillOpacity: 0.9 
+        }).addTo(markers).bindPopup(popupContent);
+    });
+}
 
         function setTab(t) {
             document.getElementById('tab-listas').classList.toggle('active', t === 'listas');
