@@ -250,75 +250,28 @@
             }
         }
 
-        function formatName(n) { 
-            // Escudo: Si no hay nombre, devolvemos un texto por defecto
-            if (!n) return "Obs. Anónimo"; 
-            const p = n.split(' '); 
-            return p.length > 1 ? `${p[0]} ${p[1][0]}.` : p[0]; 
-        }
+        function formatName(n) { const p = n.split(' '); return p.length > 1 ? `${p[0]} ${p[1][0]}.` : p[0]; }
 
         function render() {
-            // Escudo por si el buscador HTML no ha cargado
-            const fUserEl = document.getElementById('f-user');
-            const fu = fUserEl ? fUserEl.value.toLowerCase() : "";
-            
+            const fu = document.getElementById('f-user').value.toLowerCase();
             markers.clearLayers();
-            
-            // Construimos las fechas posibles
-            const h = new Date();
-            const y = h.getFullYear();
-            const mConCero = String(h.getMonth() + 1).padStart(2, '0');
-            const dConCero = String(h.getDate()).padStart(2, '0');
-            const mSinCero = h.getMonth() + 1;
-            const dSinCero = h.getDate();
-            
-            const f1 = `${y}-${mConCero}-${dConCero}`; // Formato: "2026-05-01"
-            const f2 = `${y}-${mSinCero}-${dSinCero}`; // Formato: "2026-5-1"
-            
-            // --- INICIO DE CHISMOSERÍA (Modo Debug) ---
-            console.log("=== DEBUG RADAR ===");
-            console.log("Buscando listas con la fecha:", f1, "o", f2);
-            if (rawListas && rawListas.length > 0) {
-                console.log("Éxito: Tenemos", rawListas.length, "listas descargadas de eBird.");
-                console.log("La lista MÁS RECIENTE del servidor tiene la fecha:", rawListas[0].obsDt);
-            } else {
-                console.log("ERROR: rawListas está vacío o no llegó del servidor.");
-            }
-            // ------------------------------------------
-
-            const filtradas = rawListas.filter(l => {
-                if (!l.obsDt) return false;
-                
-                // Buscamos si la fecha del ave coincide con alguno de nuestros formatos
-                const esHoy = l.obsDt.includes(f1) || l.obsDt.includes(f2);
-                
-                const nombreUsuario = l.userDisplayName ? l.userDisplayName.toLowerCase() : "observador anónimo";
-                const coincideBuscador = fu === "" || nombreUsuario.includes(fu);
-                
-                return esHoy && coincideBuscador;
-            });
-
-            console.log("Listas que pasaron el filtro y se van a dibujar:", filtradas.length);
-            console.log("===================");
-
-            // Imprimimos la tabla
+            const filtradas = rawListas.filter(l => l.obsDt.includes(diaH) && l.userDisplayName.toLowerCase().includes(fu));
             document.getElementById('tbody-listas').innerHTML = filtradas.map(l => `
                 <tr>
                     <td onclick="map.flyTo([${l.loc.latitude}, ${l.loc.longitude}], 14)" style="cursor:pointer">
                         <b>${formatName(l.userDisplayName)}</b> <br> <span style="font-size:9px; color:#666">${l.loc.name.substring(0,25)}</span>
                     </td>
-                    <td style="text-align:center"><span style="background:var(--green); color:white; padding:2px 5px; border-radius:10px">${l.numSpecies || 0}</span></td>
+                    <td style="text-align:center"><span style="background:var(--green); color:white; padding:2px 5px; border-radius:10px">${l.numSpecies}</span></td>
                     <td style="text-align:center"><a href="https://ebird.org/checklist/${l.subId}" target="_blank" style="color:var(--accent)"><i class="fas fa-external-link-alt"></i></a></td>
                 </tr>
             `).join('');
 
-            // Dibujamos los pines
             filtradas.forEach(l => {
                 const popupContent = `
                     <div class="popup-card">
-                        <b>${l.userDisplayName || 'Obs. Anónimo'}</b>
+                        <b>${l.userDisplayName}</b>
                         <small><i class="fas fa-map-marker-alt"></i> ${l.loc.name}</small><br>
-                        <small><i class="fas fa-dove"></i> Especies: <b>${l.numSpecies || 0}</b></small>
+                        <small><i class="fas fa-dove"></i> Especies: <b>${l.numSpecies}</b></small>
                         <a href="https://ebird.org/checklist/${l.subId}" target="_blank" class="btn-ver">VER LISTA</a>
                     </div>
                 `;
