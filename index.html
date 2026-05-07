@@ -185,7 +185,7 @@
             "CL-RM": [-33.45, -70.66], "CL-OH": [-34.17, -70.74], "CL-ML": [-35.42, -71.65],
             "CL-NB": [-36.60, -72.10], "CL-BI": [-36.82, -73.03], "CL-AR": [-38.73, -72.59],
             "CL-LR": [-39.81, -73.24], "CL-LL": [-41.47, -72.94], "CL-AI": [-45.57, -72.06],
-            "CL-MA": [-53.16, -70.91], "CL": [-41.47, -72.94]
+            "CL-MA": [-53.16, -70.91], "CL": [-35.67, -71.54]
         };
 
         const map = L.map('map', { zoomControl: false }).setView([-41.47, -72.94], 9);
@@ -196,7 +196,14 @@
 
         async function changeRegion(val) {
             REGION = val;
-            if(coordsRegiones[REGION]) map.flyTo(coordsRegiones[REGION], 9);
+            
+            // Si elige todo Chile (CL), alejamos el zoom a 5. Si es una región, acercamos a 9.
+            const nivelZoom = (val === "CL") ? 5 : 9;
+            
+            if(coordsRegiones[REGION]) {
+                map.flyTo(coordsRegiones[REGION], nivelZoom);
+            }
+            
             markers.clearLayers();
             await update();
         }
