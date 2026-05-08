@@ -1,0 +1,576 @@
+Nombre_CL,sciName,speciesCode,comName_en
+Paloma doméstica,Columba livia,rocpig,Rock Pigeon
+Tórtola,Zenaida auriculata,eardov1,Eared Dove
+Picaflor chico,Sephanoides sephaniodes,grbfir1,Green-backed Firecrown
+Cachudito común,Anairetes parulus,tuttyr1,Tufted Tit-Tyrant
+Chercán común,Troglodytes musculus,houwre4,Southern House Wren
+Zorzal patagónico,Turdus falcklandii,austhr1,Austral Thrush
+Chincol,Zonotrichia capensis,rucspa1,Rufous-collared Sparrow
+Tortolita cuyana,Columbina picui,pigdov1,Picui Ground Dove
+Águila,Geranoaetus melanoleucus,bcbeag1,Black-chested Buzzard-Eagle
+Tiuque,Daptrius chimango,chicar1,Chimango Caracara
+Cotorra,Myiopsitta monachus,monpar,Monk Parakeet
+Gorrión,Passer domesticus,houspa,House Sparrow
+Codorniz,Callipepla californica,calqua,California Quail
+Queltehue común,Vanellus chilensis,soulap1,Southern Lapwing
+Churrín de la Mocha,Eugralla paradoxa,ocftap1,Ochre-flanked Tapaculo
+Diucón,Pyrope pyrope,fiediu1,Fire-eyed Diucon
+Viudita,Colorhamphus parvirostris,pattyr2,Patagonian Tyrant
+Golondrina chilena,Tachycineta leucopyga,chiswa1,Chilean Swallow
+Loica común,Leistes loyca,lotmea1,Long-tailed Meadowlark
+Cometocino patagónico,Phrygilus patagonicus,pasfin1,Patagonian Sierra Finch
+Diuca común,Diuca diuca,codfin1,Diuca Finch
+Chirihue común,Sicalis luteola,gryfin1,Grassland Yellow-Finch
+Gaviota dominicana,Larus dominicanus,kelgul,Kelp Gull
+Tijeral común,Leptasthenura aegithaloides,pmtspi1,Plain-mantled Tit-Spinetail
+Jilguero austral,Spinus barbatus,blcsis2,Black-chinned Siskin
+Tordo,Curaeus curaeus,ausbla1,Austral Blackbird
+Garza grande,Ardea alba,greegr,Great Egret
+Peuco,Parabuteo unicinctus,hrshaw,Harris's Hawk
+Picaflor de Cora,Thaumastura cora,pershe2,Peruvian Sheartail
+Nuco,Asio flammeus,sheowl,Short-eared Owl
+Chuncho austral,Glaucidium nana,aupowl1,Austral Pygmy-Owl
+Chorlo de campo,Oreopholus ruficollis,tatdot1,Tawny-throated Dotterel
+Bandurria común,Theristicus melanopis,bkfibi1,Black-faced Ibis
+Vari ceniciento,Circus cinereus,cinhar1,Cinereous Harrier
+Minero común,Geositta cunicularia,commin1,Common Miner
+Lechuza,Tyto furcata,brnowl,American Barn Owl
+Tucúquere,Bubo magellanicus,grhowl2,Lesser Horned Owl
+Pidén común,Pardirallus sanguinolentus,plurai1,Plumbeous Rail
+Cometocino de Gay,Phrygilus gayi,gyhsif1,Gray-hooded Sierra Finch
+Paloma de alas blancas,Zenaida meloda,wepdov1,West Peruvian Dove
+Pilpilén negro,Haematopus ater,blaoys1,Blackish Oystercatcher
+Gaviota garuma,Leucophaeus modestus,grygul,Gray Gull
+Yeco,Nannopterum brasilianum,neocor,Neotropic Cormorant
+Aguilucho común,Geranoaetus polyosoma,rebhaw2,Variable Hawk
+Cernícalo,Falco sparverius,amekes,American Kestrel
+Churrete costero,Cinclodes nigrofumosus,seacin1,Seaside Cinclodes
+Tenca chilena,Mimus thenca,chimoc1,Chilean Mockingbird
+Gallina ciega común,Systellura longirostris,bawnig1,Band-winged Nightjar
+Martín pescador,Megaceryle torquata,rinkin1,Ringed Kingfisher
+Chucao,Scelorchilus rubecula,chutap1,Chucao Tapaculo
+Carpinterito,Veniliornis lignarius,strwoo6,Striped Woodpecker
+Pato colorado,Spatula cyanoptera,cintea,Cinnamon Teal
+Pato gargantillo,Anas bahamensis,whcpin,White-cheeked Pintail
+Tagüita del norte,Gallinula galeata,comgal1,Common Gallinule
+Pilpilén común,Haematopus palliatus,ameoys,American Oystercatcher
+Chorlo ártico,Pluvialis squatarola,bkbplo,Black-bellied Plover
+Chorlo dorado,Pluvialis dominica,amgplo,American Golden-Plover
+Chorlo gritón,Charadrius vociferus,killde,Killdeer
+Zarapito común,Numenius hudsonicus,whimbr3,Hudsonian Whimbrel
+Playero grande,Tringa semipalmata,willet1,Willet
+Pitotoy grande,Tringa melanoleuca,greyel,Greater Yellowlegs
+Playero enano,Calidris minutilla,leasan,Least Sandpiper
+Playero semipalmado,Calidris pusilla,semsan,Semipalmated Sandpiper
+Gaviota andina,Chroicocephalus serranus,andgul1,Andean Gull
+Gaviota peruana,Larus belcheri,belgul,Belcher's Gull
+Rayador,Rynchops niger,blkski,Black Skimmer
+Gaviotín de pico negro,Gelochelidon nilotica,gubter2,Gull-billed Tern
+Gaviotín elegante,Thalasseus elegans,eleter1,Elegant Tern
+Cuervo de pantano de la puna,Plegadis ridgwayi,punibi1,Puna Ibis
+Huairavo común,Nycticorax nycticorax,bcnher,Black-crowned Night Heron
+Pelícano de Humboldt,Pelecanus thagus,perpel1,Peruvian Pelican
+Jote de cabeza colorada,Cathartes aura,turvul,Turkey Vulture
+Perdiz chilena,Nothoprocta perdicaria,chitin1,Chilean Tinamou
+Mero grande,Agriornis lividus,gresht1,Great Shrike-Tyrant
+Yal común,Rhopospina fruticeti,mosfin1,Mourning Sierra Finch
+Mirlo común,Molothrus bonariensis,shicow,Shiny Cowbird
+Torcaza,Patagioenas araucana,chipig2,Chilean Pigeon
+Choroy,Enicognathus leptorhynchus,slbpar1,Slender-billed Parakeet
+Pingüino de Humboldt,Spheniscus humboldti,humpen1,Humboldt Penguin
+Albatros de ceja negra,Thalassarche melanophris,bkbalb,Black-browed Albatross
+Piquero de Humboldt,Sula variegata,perboo1,Peruvian Booby
+Guanay,Leucocarbo bougainvilliorum,guacor1,Guanay Cormorant
+Canastero chico,Asthenes modesta,corcan1,Cordilleran Canastero
+Traro,Caracara plancus,y00678,Crested Caracara
+Churrín del sur,Scytalopus magellanicus,magtap1,Magellanic Tapaculo
+Rayadito,Aphrastura spinicauda,thtray1,Thorn-tailed Rayadito
+Faisán de collar,Phasianus colchicus,rinphe1,Ring-necked Pheasant
+Cachaña,Enicognathus ferrugineus,auspar1,Austral Parakeet
+Pitío austral,Colaptes pitius,chifli1,Chilean Flicker
+Turca,Pteroptochos megapodius,moutur1,Moustached Turca
+Platero,Rhopospina alaudina,btsfin1,Band-tailed Sierra Finch
+Picurio,Podilymbus podiceps,pibgre,Pied-billed Grebe
+Cisne coscoroba,Coscoroba coscoroba,cosswa1,Coscoroba Swan
+Pato real,Mareca sibilatrix,chiwig1,Chiloe Wigeon
+Pato jergón grande,Anas georgica,yebpin1,Yellow-billed Pintail
+Tagua común,Fulica armillata,regcoo1,Red-gartered Coot
+Perrito,Himantopus mexicanus,bknsti,Black-necked Stilt
+Chorlo de collar,Anarhynchus collaris,colplo1,Collared Plover
+Gaviota cáhuil,Chroicocephalus maculipennis,brhgul2,Brown-hooded Gull
+Gaviotín piquerito,Sterna trudeaui,truter,Snowy-crowned Tern
+Huala,Podiceps major,gregre1,Great Grebe
+Garza chica,Egretta thula,snoegr,Snowy Egret
+Bailarín,Elanus leucurus,whtkit,White-tailed Kite
+Churrete acanelado,Cinclodes fuscus,buwcin1,Buff-winged Cinclodes
+Rara,Phytotoma rara,rutpla1,Rufous-tailed Plantcutter
+Siete colores,Tachuris rubrigastra,mcrtyr1,Many-colored Rush Tyrant
+Cisne de cuello negro,Cygnus melancoryphus,blnswa2,Black-necked Swan
+Tagüita común,Porphyriops melanops,spfgal1,Spot-flanked Gallinule
+Tagua de frente roja,Fulica rufifrons,refcoo1,Red-fronted Coot
+Pimpollo común,Rollandia rolland,whtgre3,White-tufted Grebe
+Garza cuca,Ardea cocoi,cocher1,Cocoi Heron
+Jote de cabeza negra,Coragyps atratus,blkvul,Black Vulture
+Colegial austral,Lessonia rufa,ausneg1,Austral Negrito
+Trile,Agelasticus thilius,yewbla2,Yellow-winged Blackbird
+Chorlo chileno,Zonibyx modestus,rucdot1,Rufous-chested Dotterel
+Chorlo de doble collar,Anarhynchus falklandicus,twbplo1,Two-banded Plover
+Chorlo nevado,Anarhynchus nivosus,snoplo5,Snowy Plover
+Playero blanco,Calidris alba,sander,Sanderling
+Hued-hued del sur,Pteroptochos tarnii,bthhue1,Black-throated Huet-huet
+Comesebo grande,Pygarrhichas albogularis,whttre2,White-throated Treerunner
+Pato cortacorrientes,Merganetta armata,torduc1,Torrent Duck
+Cóndor,Vultur gryphus,andcon1,Andean Condor
+Tricahue,Cyanoliseus patagonus,burpar,Burrowing Parakeet
+Dormilona tontita,Muscisaxicola maclovianus,dafgrt1,Dark-faced Ground-Tyrant
+Piuquén,Oressochen melanopterus,andgoo1,Andean Goose
+Pato cuchara,Spatula platalea,redsho1,Red Shoveler
+Pato jergón chico,Anas flavirostris,yebtea1,Yellow-billed Teal
+Pato rinconero,Heteronetta atricapilla,blhduc1,Black-headed Duck
+Cuervo de pantano común,Plegadis chihi,whfibi,White-faced Ibis
+Garza bueyera,Ardea ibis,categr1,Western Cattle-Egret
+Pequén,Athene cunicularia,burowl,Burrowing Owl
+Trabajador,Phleocryptes melanops,wrlrus1,Wren-like Rushbird
+Canastero chileno,Pseudasthenes humicola,dutcan1,Dusky-tailed Canastero
+Pato negro,Netta peposaca,robpoc1,Rosy-billed Pochard
+Bandurrilla de los bosques,Upucerthia saturatior,pafear1,Patagonian Forest Earthcreeper
+Halcón perdiguero,Falco femoralis,aplfal,Aplomado Falcon
+Churrete patagónico,Cinclodes patagonicus,dabcin1,Dark-bellied Cinclodes
+Perdicita chica,Thinocorus rumicivorus,leasee1,Least Seedsnipe
+Becacina común,Gallinago magellanica,soasni3,Magellanic Snipe
+Tagua chica,Fulica leucoptera,whwcoo1,White-winged Coot
+Colilarga,Sylviorthorhynchus desmursii,demwir1,Des Murs's Wiretail
+Chercán de las vegas,Cistothorus platensis,sedwre,Grass Wren
+Bailarín chico común,Anthus correndera,corpip1,Correndera Pipit
+Caiquén,Chloephaga picta,uplgoo1,Upland Goose
+Pato juarjual,Lophonetta specularioides,creduc1,Crested Duck
+Minero cordillerano,Geositta rufipennis,rubmin1,Rufous-banded Miner
+Mero gaucho,Agriornis montanus,bkbsht1,Black-billed Shrike-Tyrant
+Blanquillo,Podiceps occipitalis,silgre1,Silvery Grebe
+Gaviotín monja,Larosterna inca,incter1,Inca Tern
+Lile,Poikilocarbo gaimardi,relcor1,Red-legged Cormorant
+Halcón peregrino,Falco peregrinus,perfal,Peregrine Falcon
+Churrete chico,Cinclodes oustaleti,gyfcin1,Gray-flanked Cinclodes
+Picaflor del norte,Rhodopis vesper,oashum1,Oasis Hummingbird
+Huairavillo,Botaurus involucris,stbbit1,Stripe-backed Bittern
+Garza azul,Egretta caerulea,libher,Little Blue Heron
+Bandurrilla común,Upucerthia dumetaria,sctear1,Scale-throated Earthcreeper
+Quetru volador,Tachyeres patachonicus,flystd1,Flying Steamer-Duck
+Zarapito de pico recto,Limosa haemastica,hudgod,Hudsonian Godwit
+Pitotoy chico,Tringa flavipes,lesyel,Lesser Yellowlegs
+Picaflor cordillerano,Oreotrochilus leucopleurus,whshil1,White-sided Hillstar
+Playero vuelvepiedras,Arenaria interpres,rudtur,Ruddy Turnstone
+Aguilucho de cola rojiza,Buteo ventralis,ruthaw1,Rufous-tailed Hawk
+Gaviota de Franklin,Leucophaeus pipixcan,fragul,Franklin's Gull
+Gaviota austral,Leucophaeus scoresbii,dolgul2,Dolphin Gull
+Petrel gigante antártico,Macronectes giganteus,angpet1,Southern Giant-Petrel
+Petrel plateado austral,Fulmarus glacialoides,souful1,Southern Fulmar
+Cormorán imperial,Leucocarbo atriceps,impcor6,Imperial Cormorant
+Hued-hued castaño,Pteroptochos castaneus,cthhue1,Chestnut-throated Huet-huet
+Fardela negra,Ardenna grisea,sooshe,Sooty Shearwater
+Pájaro plomo,Geospizopsis unicolor,plsfin1,Plumbeous Sierra Finch
+Pato rana de pico delgado,Oxyura vittata,lakduc1,Lake Duck
+Tapaculo,Scelorchilus albicollis,whttap1,White-throated Tapaculo
+Flamenco chileno,Phoenicopterus chilensis,chifla1,Chilean Flamingo
+Churrín del norte,Scytalopus fuscus,dustap1,Dusky Tapaculo
+Playero de las rompientes,Calidris virgata,surfbi,Surfbird
+Playero de Baird,Calidris bairdii,baisan,Baird's Sandpiper
+Canastero del sur,Asthenes anthoides,auscan1,Austral Canastero
+Tenca de alas blancas,Mimus triurus,whbmoc1,White-banded Mockingbird
+Tagua andina,Fulica ardesiaca,slccoo1,Slate-colored Coot
+Dormilona chica,Muscisaxicola maculirostris,sbgtyr1,Spot-billed Ground-Tyrant
+Fío-fío,Elaenia albiceps,whcela1,White-crested Elaenia
+Picaflor gigante,Patagona gigas,giahum1,Giant Hummingbird
+Pato capuchino,Spatula versicolor,siltea1,Silver Teal
+Concón,Strix rufipes,rulowl1,Rufous-legged Owl
+Peuquito,Astur chilensis,bichaw4,Chilean Hawk
+Salteador chico,Stercorarius parasiticus,parjae,Parasitic Jaeger
+Albatros real del norte,Diomedea sanfordi,royalb3,Northern Royal Albatross
+Albatros de Salvin,Thalassarche salvini,salalb1,Salvin's Albatross
+Golondrina de mar de Wilson/fueguina,Oceanites oceanicus,wispet,Wilson's Storm-Petrel
+Petrel gigante subantártico,Macronectes halli,norgip1,Northern Giant-Petrel
+Petrel de barba blanca,Procellaria aequinoctialis,whcpet1,White-chinned Petrel
+Fardela blanca,Ardenna creatopus,pifshe,Pink-footed Shearwater
+Pato anteojillo,Speculanas specularis,speduc2,Spectacled Duck
+Pilpilén austral,Haematopus leucopodus,magoys1,Magellanic Oystercatcher
+Gaviotín sudamericano,Sterna hirundinacea,soater1,South American Tern
+Quetru no volador,Tachyeres pteneres,flistd1,Flightless Steamer-Duck
+Pingüino de Magallanes,Spheniscus magellanicus,magpen1,Magellanic Penguin
+Chorlo cabezón,Hesperoburhinus superciliaris,petkne1,Peruvian Thick-knee
+Golondrina de mar Pincoya,Oceanites pincoyae,pumstp1,Pincoya Storm-Petrel
+Yunco de Magallanes,Pelecanoides magellani,madpet1,Magellanic Diving-Petrel
+Dormilona de nuca rojiza,Muscisaxicola rufivertex,rngtyr1,Rufous-naped Ground-Tyrant
+Golondrina de dorso negro,Pygochelidon cyanoleuca,bawswa1,Blue-and-white Swallow
+Tortolita quiguagua,Columbina cruziana,crgdov1,Croaking Ground Dove
+Pizarrita,Xenospingus concolor,slbfin3,Slender-billed Finch
+Salteador chileno,Stercorarius chilensis,chisku1,Chilean Skua
+Pingüino rey,Aptenodytes patagonicus,kinpen1,King Penguin
+Petrel de collar gris,Pterodroma mollis,soppet1,Soft-plumaged Petrel
+Minero austral,Geositta antarctica,shbmin1,Short-billed Miner
+Canquén común,Chloephaga poliocephala,ashgoo1,Ashy-headed Goose
+Caranca,Chloephaga hybrida,kelgoo1,Kelp Goose
+Suri/Ñandú,Rhea pennata,lesrhe2,Lesser Rhea
+Golondrina de mar negra,Hydrobates markhami,maspet,Markham's Storm-Petrel
+Golondrina peruana,Progne murphyi,permar1,Peruvian Martin
+Carpintero negro,Campephilus magellanicus,magwoo1,Magellanic Woodpecker
+Paloma manchada,Patagioenas maculosa,spwpig3,Spot-winged Pigeon
+Saca-tu-real,Pyrocephalus rubinus,verfly,Vermilion Flycatcher
+Suirirí boreal,Tyrannus tyrannus,easkin,Eastern Kingbird
+Corbatita del norte,Sporophila telasco,chtsee1,Chestnut-throated Seedeater
+Matacaballos,Crotophaga sulcirostris,grbani,Groove-billed Ani
+Vencejo chico,Aeronautes andecolus,andswi1,Andean Swift
+Loica peruana,Leistes bellicosus,permea1,Peruvian Meadowlark
+Gallina ciega chica,Quechuavis decussata,bawnig3,Tschudi's Nightjar
+Mirlo de pico corto,Molothrus rufoaxillaris,scrcow1,Screaming Cowbird
+Jilguero peruano,Spinus magellanicus,hoosis1,Hooded Siskin
+Comesebo chico,Conirostrum cinereum,cincon1,Cinereous Conebill
+Chorlo semipalmado,Charadrius semipalmatus,semplo,Semipalmated Plover
+Playero zarapito,Calidris ferruginea,cursan,Curlew Sandpiper
+Águila pescadora,Pandion haliaetus,osprey,Osprey
+Cormorán de las rocas,Leucocarbo magellanicus,magcor1,Magellanic Cormorant
+Tortolita boliviana,Metriopelia ceciliae,bfgdov1,Bare-faced Ground Dove
+Tortolita cordillerana,Metriopelia melanoptera,bwgdov1,Black-winged Ground Dove
+Chirihue cordillerano,Sicalis uropygialis,bryfin1,Bright-rumped Yellow-Finch
+Chiricoca,Ochetorhynchus melanurus,crachi1,Crag Chilia
+Cachudito de cresta blanca,Anairetes reguloides,pcttyr1,Pied-crested Tit-Tyrant
+Comesebo de los tamarugales,Conirostrum tamarugense,tamcon1,Tamarugo Conebill
+Chirihue verdoso,Sicalis olivascens,gryfin3,Greenish Yellow-Finch
+Golondrina grande,Petrochelidon pyrrhonota,cliswa,Cliff Swallow
+Perico cordillerano,Psilopsiagon aurifrons,moupar2,Mountain Parakeet
+Canastero del norte,Asthenes arequipae,crbcan4,Dark-winged Canastero
+Zorzal negro,Turdus chiguanco,chithr1,Chiguanco Thrush
+Jilguero cordillerano,Spinus uropygialis,yersis1,Yellow-rumped Siskin
+Golondrina bermeja,Hirundo rustica,barswa,Barn Swallow
+Chirihue azafrán,Sicalis flaveola,saffin,Saffron Finch
+Cometocino del norte,Phrygilus atriceps,bhsfin1,Black-hooded Sierra Finch
+Picaflor de la puna,Oreotrochilus estella,andhil3,Andean Hillstar
+Plebeyo,Geospizopsis plebejus,absfin1,Ash-breasted Sierra Finch
+Pollito de mar tricolor,Phalaropus tricolor,wilpha,Wilson's Phalarope
+Playero de patas largas,Calidris himantopus,stisan,Stilt Sandpiper
+Playero pectoral,Calidris melanotos,pecsan,Pectoral Sandpiper
+Canquén colorado,Chloephaga rubidiceps,ruhgoo1,Ruddy-headed Goose
+Bandurrilla de Arica,Upucerthia albigula,whtear1,White-throated Earthcreeper
+Naranjero,Rauenia bonariensis,baytan3,Blue-and-yellow Tanager
+Caití,Recurvirostra andina,andavo1,Andean Avocet
+Chorlo de la puna,Anarhynchus alticola,punplo1,Puna Plover
+Parina grande,Phoenicoparrus andinus,andfla2,Andean Flamingo
+Golondrina de los riscos,Orochelidon andecola,andswa2,Andean Swallow
+Aguilucho chico,Buteo albigula,whthaw1,White-throated Hawk
+Comesebo negro,Diglossa brunneiventris,bktflo1,Black-throated Flowerpiercer
+Perdiz cordillerana,Nothoprocta ornata,orntin1,Ornate Tinamou
+Cachudito del norte,Anairetes flavirostris,ybttyr1,Yellow-billed Tit-Tyrant
+Pitajo gris,Ochthoeca leucophrys,wbctyr1,White-browed Chat-Tyrant
+Semillero,Catamenia analis,batsee1,Band-tailed Seedeater
+Pitío del norte,Colaptes rupicola,andfli1,Andean Flicker
+Churrete de alas cremas,Cinclodes albiventris,crwcin1,Cream-winged Cinclodes
+Dormilona gigante,Muscisaxicola albifrons,wfgtyr1,White-fronted Ground-Tyrant
+Comesebo gigante,Conirostrum binghami,giacon1,Giant Conebill
+Pato puna,Spatula puna,puntea1,Puna Teal
+Pato rana de pico ancho,Oxyura ferruginea,andduc1,Andean Duck
+Tagua gigante,Fulica gigantea,giacoo1,Giant Coot
+Churrete de alas blancas,Cinclodes atacamensis,whwcin1,White-winged Cinclodes
+Colegial del norte,Lessonia oreas,andneg1,Andean Negrito
+Pitajo rojizo,Ochthoeca oenanthoides,dorcht1,d'Orbigny's Chat-Tyrant
+Jilguero negro,Spinus atratus,blasis1,Black Siskin
+Cometocino de Arica,Idiopsar erythronotus,wtsfin1,White-throated Sierra Finch
+Bandurrilla de la puna,Upucerthia validirostris,bubear2,Buff-breasted Earthcreeper
+Dormilona de la puna,Muscisaxicola juninensis,pugtyr1,Puna Ground-Tyrant
+Diuca de alas blancas,Idiopsar speculifer,wwdfin1,Glacier Finch
+Minero de la puna,Geositta punensis,punmin1,Puna Miner
+Queltehue de la puna,Vanellus resplendens,andlap1,Andean Lapwing
+Perdicita cojón,Thinocorus orbignyianus,gybsee1,Gray-breasted Seedsnipe
+Yal cordillerano,Melanodera xanthogramma,yebfin1,Yellow-bridled Finch
+Chuncho del norte,Glaucidium peruanum,pepowl1,Peruvian Pygmy-Owl
+Minero chico,Geositta maritima,gramin1,Grayish Miner
+Benteveo rayado,Myiodynastes maculatus,strfly1,Streaked Flycatcher
+Playero de lomo blanco,Calidris fuscicollis,whrsan,White-rumped Sandpiper
+Perdiz andina,Nothoprocta pentlandii,andtin1,Andean Tinamou
+Burrito negruzco,Laterallus spiloptera,dowcra1,Dot-winged Crake
+Chorlo de Magallanes,Pluvianellus socialis,magplo1,Magellanic Plover
+Picaflor azul,Colibri coruscans,spvear1,Sparkling Violetear
+Tijeral listado,Leptasthenura striata,sttspi1,Streaked Tit-Spinetail
+Canastero de las quebradas,Asthenes pudibunda,cancan1,Canyon Canastero
+Carancho de garganta blanca,Daptrius albogularis,whtcar1,White-throated Caracara
+Carancho cordillerano,Daptrius megalopterus,moucar1,Mountain Caracara
+Chirihue dorado,Sicalis auriventris,gryfin2,Greater Yellow-Finch
+Mero de Tarapacá,Agriornis micropterus,gybsht1,Gray-bellied Shrike-Tyrant
+Golondrina barranquera,Riparia riparia,banswa,Bank Swallow
+Parina chica,Phoenicoparrus jamesi,jamfla1,James's Flamingo
+Cazamoscas de pico chato,Myiophobus rufescens,brcfly3,Rufescent Flycatcher
+Negrillo,Volatinia jacarina,blbgra1,Blue-black Grassquit
+Bandurrilla de pico recto,Ochetorhynchus ruficaudus,stbear2,Straight-billed Earthcreeper
+Petrel de Westland,Procellaria westlandica,wespet1,Westland Petrel
+Dormilona fraile,Muscisaxicola flavinucha,ongtyr1,Ochre-naped Ground-Tyrant
+Tortolita de la puna,Metriopelia aymara,gsgdov1,Golden-spotted Ground Dove
+Chirihue puneño,Sicalis lutea,puyfin1,Puna Yellow-Finch
+Tenca patagónica,Mimus patagonicus,patmoc1,Patagonian Mockingbird
+Batitú,Bartramia longicauda,uplsan,Upland Sandpiper
+Playero manchado,Actitis macularius,sposan,Spotted Sandpiper
+Perdiz copetona,Eudromia elegans,elctin1,Elegant Crested-Tinamou
+Perdicita austral,Attagis malouinus,whbsee2,White-bellied Seedsnipe
+Yal austral,Melanodera melanodera,cawfin1,White-bridled Finch
+Chirihue austral,Sicalis lebruni,payfin1,Patagonian Yellow-Finch
+Perdiz de la puna,Tinamotis pentlandii,puntin1,Puna Tinamou
+Becacina de la puna,Gallinago andina,punsni1,Puna Snipe
+Mero de la puna,Agriornis albicauda,wtstyr1,White-tailed Shrike-Tyrant
+Dormilona de ceja blanca,Muscisaxicola albilora,wbgtyr1,White-browed Ground-Tyrant
+Canastero de cola larga,Asthenes pyrrholeuca,shbcan2,Sharp-billed Canastero
+Pidencito,Laterallus jamaicensis,blkrai,Black Rail
+Tagua cornuda,Fulica cornuta,horcoo1,Horned Coot
+Run-run,Hymenops perspicillatus,spetyr1,Spectacled Tyrant
+Variegated Flycatcher,Empidonomus varius,varfly,Variegated Flycatcher
+Suirirí real,Tyrannus melancholicus,trokin,Tropical Kingbird
+Gaviota de las Galápagos,Creagrus furcatus,swtgul1,Swallow-tailed Gull
+Petrel de Masatierra,Pterodroma defilippiana,maspet3,Masatierra Petrel
+Golondrina de mar de vientre blanco,Fregetta grallaria,wbspet1,White-bellied Storm-Petrel
+Petrel de Juan Fernández,Pterodroma externa,jufpet,Juan Fernandez Petrel
+Piquero blanco,Sula dactylatra,masboo,Masked Booby
+Fardela de dorso gris,Ardenna bulleri,bulshe,Buller's Shearwater
+Ave fragata grande,Fregata minor,grefri,Great Frigatebird
+Yunco de Humboldt,Pelecanoides garnotii,pedpet1,Peruvian Diving-Petrel
+Dormilona rufa,Muscisaxicola capistratus,cibgrt1,Cinnamon-bellied Ground-Tyrant
+Playero ártico,Calidris canutus,redkno,Red Knot
+Becacina pintada,Nycticryphes semicollaris,soapas1,South American Painted-Snipe
+Carancho negro,Daptrius australis,strcar1,Striated Caracara
+Fardela capirotada,Ardenna gravis,greshe,Great Shearwater
+Petrel de Masafuera,Pterodroma longirostris,stepet,Stejneger's Petrel
+Dormilona cenicienta,Muscisaxicola cinereus,cingrt1,Cinereous Ground-Tyrant
+Ave del trópico de cola roja,Phaethon rubricauda,rettro,Red-tailed Tropicbird
+Perdicita cordillerana,Attagis gayi,rubsee2,Rufous-bellied Seedsnipe
+Cometocino de dorso castaño,Idiopsar dorsalis,rbsfin1,Red-backed Sierra Finch
+Petrel damero,Daption capense,cappet,Pintado Petrel
+Dormilona de frente negra,Muscisaxicola frontalis,bfgtyr1,Black-fronted Ground-Tyrant
+Bandurria de la puna,Theristicus branickii,bkfibi2,Andean Ibis
+Chorlito cordillerano,Phegornis mitchellii,diaplo1,Diademed Sandpiper-Plover
+Picaflor de Juan Fernández,Sephanoides fernandensis,juffir1,Juan Fernandez Firecrown
+Cachudito de Juan Fernández,Anairetes fernandezianus,jfttyr1,Juan Fernandez Tit-Tyrant
+Gaviotín de San Félix,Anous stolidus,brnnod,Brown Noddy
+Gaviotín de San Ambrosio,Anous albivitta,grynod1,Gray Noddy
+Petrel de Kermadec,Pterodroma neglecta,kerpet,Kermadec Petrel
+Fardela de Pascua,Puffinus nativitatis,chrshe,Christmas Shearwater
+Albatros errante,Diomedea exulans,wanalb1,Snowy Albatross
+Albatros de cabeza gris,Thalassarche chrysostoma,gyhalb,Gray-headed Albatross
+Petrel azulado,Halobaena caerulea,blupet1,Blue Petrel
+Minero grande,Geositta isabellina,crrmin1,Creamy-rumped Miner
+Pingüino papúa,Pygoscelis papua,genpen1,Gentoo Penguin
+Paloma antártica,Chionis albus,snoshe2,Snowy Sheathbill
+Albatros real del sur,Diomedea epomophora,royalb2,Southern Royal Albatross
+Yunco de los canales,Pelecanoides urinatrix,codpet1,Common Diving-Petrel
+Albatros de Buller,Thalassarche bulleri,bulalb2,Buller's Albatross
+Gaviota de capucho gris,Chroicocephalus cirrocephalus,grhgul,Gray-hooded Gull
+Gaviotín de pico grande,Phaetusa simplex,labter1,Large-billed Tern
+Albatros de manto claro,Phoebetria palpebrata,limalb1,Light-mantled Albatross
+Gaviotín boreal,Sterna hirundo,comter,Common Tern
+Golondrina de mar chica,Oceanites gracilis,wvspet1,Elliot's Storm-Petrel
+Golondrina de mar de collar,Hydrobates hornbyi,rispet1,Ringed Storm-Petrel
+Piquero de Cocos,Sula brewsteri,cocboo1,Cocos Booby
+Golondrina de mar de vientre negro,Fregetta tropica,bbspet1,Black-bellied Storm-Petrel
+Petrel Atlántico,Pterodroma incerta,atlpet1,Atlantic Petrel
+Gaviotín blanco,Gygis candida,whiter4,Blue-billed White-Tern
+Pidén austral,Rallus antarcticus,ausrai1,Austral Rail
+Petrel-paloma antártico,Pachyptila desolata,dovpri1,Antarctic Prion
+Petrel-paloma de pico delgado,Pachyptila belcheri,slbpri1,Slender-billed Prion
+Cazamoscas chocolate,Neoxolmis rufiventris,chvtyr2,Chocolate-vented Tyrant
+Golondrina de mar peruana,Hydrobates tethys,wrspet,Wedge-rumped Storm-Petrel
+Golondrina de mar de cara blanca,Pelagodroma marina,wfspet,White-faced Storm-Petrel
+Piquero de patas rojas,Sula sula,refboo,Red-footed Booby
+Petrel de Kerguelen,Aphrodroma brevirostris,kerpet2,Kerguelen Petrel
+Ave del trópico de pico rojo,Phaethon aethereus,rebtro,Red-billed Tropicbird
+Albatros de Chatham,Thalassarche eremita,shyalb2,Chatham Albatross
+Pollito de mar rojizo,Phalaropus fulicarius,redpha1,Red Phalarope
+Ave del trópico de cola blanca,Phaethon lepturus,whttro,White-tailed Tropicbird
+Pingüino de penacho amarillo,Eudyptes chrysocome,rocpen2,Western Rockhopper Penguin
+Cazamoscas tijereta,Tyrannus savana,fotfly,Fork-tailed Flycatcher
+Pájaro amarillo,Pseudocolopteryx citreola,ticdor1,Ticking Doradito
+Fardela chica,Puffinus elegans,litshe4,Subantarctic Shearwater
+Churrete austral,Cinclodes antarcticus,blacin1,Blackish Cinclodes
+Albatros de las Antípodas/de Gibson,Diomedea antipodensis,antalb1,Antipodean Albatross
+Bailarín chico peruano,Anthus peruvianus,yelpip3,Peruvian Pipit
+Gaviota reidora,Leucophaeus atricilla,laugul,Laughing Gull
+Patagón,Ochetorhynchus phoenicurus,batear1,Band-tailed Earthcreeper
+Fardela atlántica,Puffinus puffinus,manshe,Manx Shearwater
+Piranga roja,Piranga rubra,sumtan,Summer Tanager
+Carpintero real,Colaptes melanochloros,grbwoo3,Green-barred Woodpecker
+Jilguero grande,Spinus crassirostris,thbsis1,Thick-billed Siskin
+Playero occidental,Calidris mauri,wessan,Western Sandpiper
+Zorzalito de Swainson,Catharus ustulatus,swathr,Swainson's Thrush
+Gaviotín de Sandwich,Thalasseus sandvicensis,santer1,Sandwich Tern
+Pingüino macaroni,Eudyptes chrysolophus,macpen1,Macaroni Penguin
+Salteador de cola larga,Stercorarius longicaudus,lotjae,Long-tailed Jaeger
+Salteador pardo,Stercorarius antarcticus,brnsku3,Brown Skua
+Bailarín chico pálido,Anthus hellmayri,helpip1,Hellmayr's Pipit
+Gaviotín chico,Sternula lorata,perter2,Peruvian Tern
+Gaviotín apizarrado,Onychoprion fuscatus,sooter1,Sooty Tern
+Vencejo de collar,Streptoprocne zonaris,whcswi,White-collared Swift
+Perdiz austral,Tinamotis ingoufi,pattin1,Patagonian Tinamou
+Becacina grande,Gallinago stricklandii,fuesni1,Fuegian Snipe
+Golondrina negra,Progne elegans,soumar,Southern Martin
+Salteador polar,Stercorarius maccormicki,sopsku1,South Polar Skua
+Tuquito gris,Empidonomus aurantioatrocristatus,croslf1,Crowned Slaty Flycatcher
+Rayadito de Masafuera,Aphrastura masafuerae,masray1,Masafuera Rayadito
+Petrel de Cook,Pterodroma cookii,coopet,Cook's Petrel
+Vencejo de chimenea,Chaetura pelagica,chiswi,Chimney Swift
+King Vulture,Sarcoramphus papa,kinvul1,King Vulture
+Pollito de mar boreal,Phalaropus lobatus,renpha,Red-necked Phalarope
+Gaviotín ártico,Sterna paradisaea,arcter,Arctic Tern
+Salteador pomarino,Stercorarius pomarinus,pomjae,Pomarine Jaeger
+Petrel de Herald,Pterodroma heraldica,herpet2,Herald Petrel
+Albatros oscuro,Phoebetria fusca,sooalb1,Sooty Albatross
+Petrel de Murphy,Pterodroma ultima,murpet,Murphy's Petrel
+Petrel de Henderson,Pterodroma atrata,henpet1,Henderson Petrel
+Fardela del Pacífico,Ardenna pacifica,wetshe,Wedge-tailed Shearwater
+Petrel de Fénix,Pterodroma alba,phopet1,Phoenix Petrel
+Alder Flycatcher,Empidonax alnorum,aldfly,Alder Flycatcher
+Chirihue de Raimondi,Sicalis raimondii,rayfin1,Raimondi's Yellow-Finch
+Petrel de alas negras,Pterodroma nigripennis,bkwpet,Black-winged Petrel
+Charlatán,Dolichonyx oryzivorus,boboli,Bobolink
+Benteveo,Pitangus sulphuratus,grekis,Great Kiskadee
+Golondrina parda,Progne tapera,brcmar1,Brown-chested Martin
+Petrel antártico,Thalassoica antarctica,antpet1,Antarctic Petrel
+Ruff,Calidris pugnax,ruff,Ruff
+Loica argentina,Leistes superciliaris,whbbla2,White-browed Meadowlark
+Northern Yellow Warbler,Setophaga aestiva,yelwar1,Northern Yellow Warbler
+Yunco geórgico,Pelecanoides georgicus,sgdpet1,South Georgia Diving-Petrel
+Birro gris,Cnemarchus rufipennis,rwbtyr1,Rufous-webbed Bush-Tyrant
+Cuclillo de pico negro,Coccyzus melacoryphus,dabcuc1,Dark-billed Cuckoo
+Petrel de las nieves,Pagodroma nivea,snopet1,Snow Petrel
+Large Elaenia,Elaenia spectabilis,larela1,Large Elaenia
+Paloma picazuró,Patagioenas picazuro,picpig2,Picazuro Pigeon
+Albatros de frente blanca,Thalassarche cauta,whcalb1,White-capped Albatross
+Becacina chica,Limnodromus griseus,shbdow,Short-billed Dowitcher
+Estornino pinto,Sturnus vulgaris,eursta,European Starling
+Gaviotín negro,Chlidonias niger,blkter,Black Tern
+Surf Cinclodes,Cinclodes taczanowskii,surcin1,Surf Cinclodes
+Garza tricolor,Egretta tricolor,triher,Tricolored Heron
+Gaviota de Sabine,Xema sabini,sabgul,Sabine's Gull
+Piquero de Nazca,Sula granti,nazboo1,Nazca Booby
+Zorzal chalchalero,Turdus amaurochalinus,crbthr1,Creamy-bellied Thrush
+Pitiayumí,Setophaga pitiayumi,tropar,Tropical Parula
+Picaflor cometa,Sappho sparganurus,retcom1,Red-tailed Comet
+Celestino,Thraupis sayaca,saytan1,Sayaca Tanager
+Pato silbón de ala blanca,Dendrocygna autumnalis,bbwduc,Black-bellied Whistling-Duck
+Tagüita purpúrea,Porphyrio martinica,purgal2,Purple Gallinule
+Albatros de las Galápagos,Phoebastria irrorata,wavalb,Waved Albatross
+Corbatita de doble collar,Sporophila caerulescens,docsee1,Double-collared Seedeater
+Pibí occidental,Contopus sordidulus,wewpew,Western Wood-Pewee
+Pingüino de Snares,Eudyptes robustus,snapen1,Snares Penguin
+Cortarramas,Phytotoma rutila,whtpla1,White-tipped Plantcutter
+Birro común,Hirundinea ferruginea,clifly1,Cliff Flycatcher
+Garcita azulada,Butorides striata,strher2,Striated Heron
+Golondrina de mar subantártica,Garrodia nereis,gybstp1,Gray-backed Storm-Petrel
+Petrel gris,Procellaria cinerea,grapet,Gray Petrel
+Verderón de ojos rojos,Vireo olivaceus,reevir1,Red-eyed Vireo
+Zarapito moteado,Limosa fedoa,margod,Marbled Godwit
+Golondrina de cabeza rojiza,Alopochelidon fucata,tahswa2,Tawny-headed Swallow
+Huairavo de corona amarilla,Nyctanassa violacea,ycnher,Yellow-crowned Night Heron
+Petrel de alas grandes,Pterodroma macroptera,grwpet3,Great-winged Petrel
+Ave fragata magnífica,Fregata magnificens,magfri,Magnificent Frigatebird
+Zarapito de cola barrada,Limosa lapponica,batgod,Bar-tailed Godwit
+Pingüino azul,Eudyptula minor,litpen1,Little Penguin
+White-rumped Swallow,Tachycineta leucorrhoa,whrswa1,White-rumped Swallow
+Benteveo de vientre azufre,Myiodynastes luteiventris,subfly,Sulphur-bellied Flycatcher
+Pato de alas azules,Spatula discors,buwtea,Blue-winged Teal
+Espátula,Platalea ajaja,rosspo1,Roseate Spoonbill
+Guácharo,Steatornis caripensis,oilbir1,Oilbird
+Golondrina de mar oscura,Hydrobates melania,bkspet,Black Storm-Petrel
+Pillo,Ciconia maguari,magsto1,Maguari Stork
+Gaviotín real,Thalasseus maximus,royter1,Royal Tern
+Playero gris,Tringa incana,wantat1,Wandering Tattler
+Pingüino antártico,Pygoscelis antarcticus,chipen2,Chinstrap Penguin
+Golondrina de mar polinésica,Nesofregetta fuliginosa,pospet1,Polynesian Storm-Petrel
+Petrel de frente blanca,Pterodroma lessonii,whhpet1,White-headed Petrel
+Tenca castaña,Mimus dorsalis,brbmoc1,Brown-backed Mockingbird
+Gallina ciega tijereta,Hydropsalis torquata,sctnig2,Scissor-tailed Nightjar
+Pintaguá,Megarynchus pitangua,bobfly1,Boat-billed Flycatcher
+Ave fragata chica,Fregata ariel,lesfri,Lesser Frigatebird
+Candelita americana,Setophaga ruticilla,amered,American Redstart
+Petrel de las Galápagos,Pterodroma phaeopygia,galpet,Galapagos Petrel
+Reinita estriada,Setophaga striata,bkpwar,Blackpoll Warbler
+Golondrina de mar boreal,Hydrobates leucorhous,lcspet,Leach's Storm-Petrel
+Pitotoy solitario,Tringa solitaria,solsan,Solitary Sandpiper
+Milano tijereta,Elanoides forficatus,swtkit,Swallow-tailed Kite
+Milano boreal,Ictinia mississippiensis,miskit,Mississippi Kite
+Lavandera blanca,Motacilla alba,whiwag,White Wagtail
+Gallina ciega peruana,Chordeiles acutipennis,lesnig,Lesser Nighthawk
+Pingüino de Adelia,Pygoscelis adeliae,adepen1,Adelie Penguin
+Birro grande,Myiotheretes striaticollis,stbtyr1,Streak-throated Bush-Tyrant
+Pepitero,Saltator aurantiirostris,gobsal1,Golden-billed Saltator
+Monjita coronada,Neoxolmis coronatus,bkcmon1,Black-crowned Monjita
+Aguilucho de ala rojiza,Rupornis magnirostris,roahaw,Roadside Hawk
+Arrocero americano,Spiza americana,dickci,Dickcissel
+Gaviotín chico boreal,Sternula antillarum,leater1,Least Tern
+Pingüino emperador,Aptenodytes forsteri,emppen1,Emperor Penguin
+Petrel de cuello blanco,Pterodroma cervicalis,whnpet,White-necked Petrel
+Pirincho,Guira guira,guicuc1,Guira Cuckoo
+Águila negra,Buteogallus urubitinga,grbhaw1,Great Black Hawk
+Cazamoscas de cola corta,Muscigralla brevicauda,stftyr1,Short-tailed Field Tyrant
+Pato crestudo,Sarkidiornis sylvicola,comduc3,Comb Duck
+Aguilucho langostero,Buteo swainsoni,swahaw,Swainson's Hawk
+Jabirú,Jabiru mycteria,jabiru,Jabiru
+Viudita negra,Knipolegus aterrimus,whwblt1,White-winged Black-Tyrant
+Huairavillo de dorso negro,Botaurus exilis,leabit,Least Bittern
+Cigüeña de cabeza pelada,Mycteria americana,woosto,Wood Stork
+Bolsero de Baltimore,Icterus galbula,balori,Baltimore Oriole
+Piranga de cara roja,Piranga ludoviciana,westan,Western Tanager
+Petrel de cara gris,Pterodroma gouldi,grwpet2,Gray-faced Petrel
+Picogrueso dorado,Pheucticus chrysogaster,gobgro1,Golden Grosbeak
+Piquero de patas azules,Sula nebouxii,bfoboo,Blue-footed Booby
+Golondrina doméstica,Progne chalybea,gybmar,Gray-breasted Martin
+Picaflor de garganta blanca,Leucochloris albicollis,whthum2,White-throated Hummingbird
+Pato cuchara boreal,Spatula clypeata,norsho,Northern Shoveler
+Pimpollo tobiano,Podiceps gallardoi,hoogre1,Hooded Grebe
+Chajá,Chauna torquata,souscr1,Southern Screamer
+Pelícano pardo,Pelecanus occidentalis,brnpel,Brown Pelican
+Gaviotín de corona blanca,Anous minutus,blknod,Black Noddy
+Playero canela,Calidris subruficollis,bubsan,Buff-breasted Sandpiper
+Ñacundá,Chordeiles nacunda,nacnig1,Nacunda Nighthawk
+Jacana,Jacana jacana,watjac1,Wattled Jacana
+Carau,Aramus guarauna,limpki,Limpkin
+Monterita de collar,Microspingus torquatus,riwfin1,Ringed Warbling Finch
+Matacaballos de pico liso,Crotophaga ani,smbani,Smooth-billed Ani
+Tersina,Tersina viridis,swatan1,Swallow Tanager
+Vireo chiví,Vireo chivi,chivir1,Chivi Vireo
+Zarapito polinésico,Numenius tahitiensis,brtcur,Bristle-thighed Curlew
+Chestnut-capped Blackbird,Chrysomus ruficapillus,chcbla2,Chestnut-capped Blackbird
+Tenca calandria,Mimus saturninus,chbmoc1,Chalk-browed Mockingbird
+Pato silbón pampa,Dendrocygna viduata,wfwduc1,White-faced Whistling-Duck
+Turpial variable,Icterus pyrrhopterus,epaori4,Variable Oriole
+Petrel-paloma de pico ancho,Pachyptila vittata,brbpri1,Broad-billed Prion
+Cuclillo de pico amarillo,Coccyzus americanus,yebcuc,Yellow-billed Cuckoo
+Chorlo de pico grueso,Anarhynchus wilsonia,wilplo,Wilson's Plover
+Arañero cara negra,Geothlypis velata,masyel5,Southern Yellowthroat
+Rey del bosque,Pheucticus aureoventris,blbgro2,Black-backed Grosbeak
+Fío-fío verdoso,Myiopagis viridicata,greela,Greenish Elaenia
+Burlisto castaño,Casiornis rufus,rufcas2,Rufous Casiornis
+Petrel plateado boreal,Fulmarus glacialis,norful,Northern Fulmar
+Picabuey,Machetornis rixosa,cattyr,Cattle Tyrant
+Petrel de Parkinson,Procellaria parkinsoni,parpet1,Parkinson's Petrel
+Mero chico,Agriornis murinus,lessht1,Lesser Shrike-Tyrant
+Urutaú,Nyctibius griseus,compot1,Common Potoo
+Pidén moteado,Pardirallus maculatus,sporai,Spotted Rail
+Reinita de dorso verde,Setophaga virens,btnwar,Black-throated Green Warbler
+Chorlo dorado del Pacífico,Pluvialis fulva,pagplo,Pacific Golden-Plover
+Cazamoscas estriado,Myiophobus fasciatus,brcfly1,Bran-colored Flycatcher
+Petrel moteado,Pterodroma inexpectata,motpet,Mottled Petrel
+Picaflor de pico rojo,Chlorostilbon lucidus,glbeme1,Glittering-bellied Emerald
+Gaviota de Bonaparte,Chroicocephalus philadelphia,bongul,Bonaparte's Gull
+Monjita castaña,Neoxolmis rubetra,rubmon1,Rusty-backed Monjita
+Gaviota argéntea americana,Larus smithsonianus,amhgul1,American Herring Gull
+Fardela tropical,Puffinus bailloni,troshe5,Tropical Shearwater
+Gaviotín pascuense,Onychoprion lunatus,gybter1,Gray-backed Tern
+Cuervo de pantano de cara pelada,Phimosus infuscatus,bafibi1,Bare-faced Ibis
+Reinita de garganta naranja,Setophaga fusca,bkbwar,Blackburnian Warbler
+Garza chiflón,Syrigma sibilatrix,whiher1,Whistling Heron
+Pato silbón colorado,Dendrocygna bicolor,fuwduc,Fulvous Whistling-Duck
+Corbatita overo,Sporophila lineola,linsee1,Lined Seedeater
+Tortolita rojiza,Columbina talpacoti,rugdov,Ruddy Ground Dove
+Reinita de Canadá,Cardellina canadensis,canwar,Canada Warbler
+Gallina ciega boreal,Chordeiles minor,comnig,Common Nighthawk
+Vari huevetero,Circus buffoni,lowhar1,Long-winged Harrier
+Reinita acuática,Parkesia noveboracensis,norwat,Northern Waterthrush
+Reinita de Tennessee,Leiothlypis peregrina,tenwar,Tennessee Warbler
+Zorzalito dorsirrojo,Catharus fuscescens,veery,Veery
+Bandurrilla de las piedras,Ochetorhynchus andaecola,rocear1,Rock Earthcreeper
+Martín pescador chico,Chloroceryle americana,grnkin,Green Kingfisher
+Picaflor de Arica,Eulidia yarrellii,chiwoo1,Chilean Woodstar
+Halcón de pecho naranja,Falco deiroleucus,orbfal1,Orange-breasted Falcon
