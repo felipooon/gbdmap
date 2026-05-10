@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking GBD Chile | Estadísticas en Vivo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #059669;
+            --gold: #f59e0b;
+            --silver: #94a3b8;
+            --bronze: #b45309;
+            --bg: #f8fafc;
+            --card: #ffffff;
+        }
+
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+            color: #1e293b;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-back {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        /* TABS PARA CAMBIAR GRÁFICO */
+        .tabs {
+            display: flex;
+            background: #e2e8f0;
+            padding: 4px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            color: #64748b;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* GRÁFICO DE BARRAS */
+        .ranking-container {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .row {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .row-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .region-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .medal {
+            font-size: 16px;
+        }
+
+        .bar-bg {
+            background: #f1f5f9;
+            height: 12px;
+            border-radius: 10px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: var(--primary);
+            width: 0%;
+            transition: width 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+        }
+
+        .value-label {
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* COLORES ESPECIALES PARA EL PODIO */
+        .row:nth-child(1) .bar-fill { background: var(--gold); }
+        .row:nth-child(2) .bar-fill { background: var(--silver); }
+        .row:nth-child(3) .bar-fill { background: var(--bronze); }
+        
+        .row:nth-child(1) .value-label { color: var(--gold); }
+        .row:nth-child(2) .value-label { color: #64748b; }
+        .row:nth-child(3) .value-label { color: var(--bronze); }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1>Ranking Regional</h1>
+    </div>
+
+    <div class="tabs">
+        <button id="t-sp" class="tab-btn active" onclick="changeMode('especies')">POR ESPECIES</button>
+        <button id="t-li" class="tab-btn" onclick="changeMode('listas')">POR LISTAS</button>
+    </div>
+
+    <div id="ranking-list" class="ranking-container">
+        <p style="text-align:center; color:#64748b; font-size: 12px;">Cargando datos de eBird Chile...</p>
+    </div>
+</div>
+
+<script>
+   // 1. Definimos las regiones con sus IDs de eBird
+    const diccionarioRegiones = {
+        "CL-AP": "Arica y Parinacota", "CL-TA": "Tarapacá", "CL-AN": "Antofagasta",
+        "CL-AT": "Atacama", "CL-CO": "Coquimbo", "CL-VS": "Valparaíso",
+        "CL-RM": "Metropolitana", "CL-OH": "O'Higgins", "CL-ML": "Maule",
+        "CL-NB": "Ñuble", "CL-BI": "Biobío", "CL-AR": "Araucanía",
+        "CL-LR": "Los Ríos", "CL-LL": "Los Lagos", "CL-AI": "Aysén",
+        "CL-MA": "Magallanes"
+    };
+
+    let regiones = []; // Aquí guardaremos los datos reales
+    let modoActual = 'especies';
+
+    async function loadRealData() {
+        const list = document.getElementById('ranking-list');
+        list.innerHTML = '<p style="text-align:center; color:#64748b; font-size: 12px;"><i class="fas fa-spinner fa-spin"></i> Consultando todas las regiones...</p>';
+
+        //const h = new Date();
+        //const y = h.getFullYear(), m = h.getMonth() + 1, d = h.getDate();
+        const y = 2026, m = 5, d = 9;
+
+        // Creamos un array de promesas para consultar todas las regiones en paralelo
+        const promesas = Object.keys(diccionarioRegiones).map(async (id) => {
+            try {
+                // Consultamos tu API de stats
+                const res = await fetch(`https://raratienda.cl/api/ebird/product/stats/${id}/${y}/${m}/${d}`);
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+
+                return {
+                    id: id,
+                    name: diccionarioRegiones[id],
+                    especies: data.numSpecies || 0, // Asegúrate que tu API devuelva numSpecies
+                    listas: data.numChecklists || 0
+                };
+            } catch (e) {
+                // Si una región falla, devolvemos datos en cero para no romper el ranking
+                return { id: id, name: diccionarioRegiones[id], especies: 0, listas: 0 };
+            }
+        });
+
+        // Esperamos a que todas las peticiones terminen
+        regiones = await Promise.all(promesas);
+        renderRanking();
+    }
+
+    function renderRanking() {
+        const list = document.getElementById('ranking-list');
+        
+        // Ordenar datos por el modo seleccionado (especies o listas)
+        const datosOrdenados = [...regiones].sort((a, b) => b[modoActual] - a[modoActual]);
+        
+        // El valor máximo sirve para calcular el ancho de la barra
+        const valorMaximo = datosOrdenados[0][modoActual] || 1;
+
+        list.innerHTML = datosOrdenados.map((r, index) => {
+            const porcentaje = (r[modoActual] / valorMaximo) * 100;
+            
+            let medalla = "";
+            if(index === 0 && r[modoActual] > 0) medalla = '<i class="fa-solid fa-crown medal" style="color: #f59e0b;"></i>';
+            else if(index === 1 && r[modoActual] > 0) medalla = '<i class="fa-solid fa-medal medal" style="color: #94a3b8;"></i>';
+            else if(index === 2 && r[modoActual] > 0) medalla = '<i class="fa-solid fa-medal medal" style="color: #b45309;"></i>';
+            else medalla = `<span style="width: 16px; display: inline-block; text-align: center; color: #cbd5e1; font-size: 10px; font-weight: bold;">${index + 1}</span>`;
+
+            return `
+                <div class="row">
+                    <div class="row-info">
+                        <div class="region-name">${medalla} ${r.name}</div>
+                        <div class="value-label">${r[modoActual]}</div>
+                    </div>
+                    <div class="bar-bg">
+                        <div class="bar-fill" style="width: ${porcentaje}%"></div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function changeMode(m) {
+        modoActual = m;
+        document.getElementById('t-sp').classList.toggle('active', m === 'especies');
+        document.getElementById('t-li').classList.toggle('active', m === 'listas');
+        renderRanking();
+    }
+
+    // Al cargar la página, llamamos a la función que conecta con la API
+    window.onload = loadRealData;
+
+</script>
+
+</body>
+</html>

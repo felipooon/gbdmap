@@ -140,8 +140,8 @@
 
 
 <div class="region-floating" style="top: 135px; width: 45px; padding: 0; display: flex; justify-content: center; align-items: center; aspect-ratio: 1/1;">
-    <a href="gbd26.html" style="color: #d97706; font-size: 20px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
-        <i class="fa-solid fa-earth-americas"></i>
+    <a href="statsgbd26.html" style="color: #d97706; font-size: 20px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+        <i class="fa-solid fa-trophy"></i>
     </a>
 </div>
 
@@ -238,10 +238,11 @@
         };
 
         async function update() {
-            const h = new Date();
-            const y = h.getFullYear(), m = h.getMonth() + 1, d = h.getDate();
+            //const h = new Date();
+            //const y = h.getFullYear(), m = h.getMonth() + 1, d = h.getDate();
+            const y = 2026, m = 5, d = 9; // Congelado en el Global Big Day
             
-    
+            
             try {
                 const resObs = await fetch(`https://raratienda.cl/api/ebird/data/obs/${REGION}/historic/${y}/${m}/${d}?locale=es_CL`);
                 const obsData = await resObs.json();
@@ -308,11 +309,13 @@
     markers.clearLayers();
     
     // 1. Construimos la fecha correcta (Ej: "2026-05-01")
-    const h = new Date();
-    const y = h.getFullYear();
-    const m = String(h.getMonth() + 1).padStart(2, '0');
-    const d = String(h.getDate()).padStart(2, '0');
-    const fechaHoy = `${y}-${m}-${d}`; 
+    //const h = new Date();
+    //const y = h.getFullYear();
+    //const m = String(h.getMonth() + 1).padStart(2, '0');
+    //const d = String(h.getDate()).padStart(2, '0');
+    //const fechaHoy = `${y}-${m}-${d}`; 
+
+    const fechaHoy = "2026-05-09"; // El filtro estricto para el GBD
 
     // 2. Filtramos usando isoObsDate y DESCARTAMOS a los anónimos
     const filtradas = rawListas.filter(l => 
